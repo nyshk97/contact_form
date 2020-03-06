@@ -19,6 +19,10 @@ if(ENV == 'development') {
   print '開発環境のため、メール送信をスキップします。';
 }
 
+if(ENV == 'test') {
+  print 'テスト環境のため、メール送信をスキップします。';
+}
+
 if(ENV == 'production'){
   //recaptcha
   if (isset($_POST["recaptchaResponse"]) && !empty($_POST["recaptchaResponse"]))
@@ -55,3 +59,15 @@ if(ENV == 'production'){
     print 'メール送信時にエラーが発生しました';
   }
 }
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <a href="<?php echo $url; ?>">管理画面</a>
+</body>
+</html>
