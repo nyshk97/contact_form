@@ -5,11 +5,22 @@ $name = $_POST['name'];
 $email = $_POST['email'];
 $content = $_POST['content'];
 
-$url = DOMAIN. '/tests/receive_test?name='. $name;
+$url = DOMAIN. '/contacts?name='. $name;
+$params = [
+  'name' => $name,
+  'email' => $email,
+  'content' => $content
+];
+
 $curl = curl_init($url);
-curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'GET'); // メソッド指定
-curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false); // 証明書の検証を行わない
-curl_setopt($curl, CURLOPT_RETURNTRANSFER, true); // レスポンスを文字列で受け取る
+curl_setopt($curl, CURLOPT_POST, TRUE);
+curl_setopt($curl, CURLOPT_POSTFIELDS, $params); // パラメータをセット
+curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+// curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'GET'); // メソッド指定
+// curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false); // 証明書の検証を行わない
+// curl_setopt($curl, CURLOPT_RETURNTRANSFER, true); // レスポンスを文字列で受け取る
 $response = curl_exec($curl);
 curl_close($curl);
 
