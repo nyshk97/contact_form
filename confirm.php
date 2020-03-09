@@ -1,6 +1,9 @@
 <?php
+$company = $_POST['company'];
 $name = $_POST['name'];
+$kana = $_POST['kana'];
 $email = $_POST['email'];
+$phone = $_POST['phone'];
 $content = $_POST['content'];
 ?>
 <!DOCTYPE html>
@@ -28,16 +31,25 @@ $content = $_POST['content'];
   <h1>送信確認</h1>
   <p>ご入力いただいた内容は下記の通りです。<br>お間違いがなければ送信ボタンをクリックしてください。</p>
   <dl>
+    <dt>会社名</dt>
+    <dd><?= $company ?></dd>
     <dt>お名前</dt>
     <dd><?= $name ?></dd>
+    <dt>フリガナ</dt>
+    <dd><?= $kana ?></dd>
     <dt>メールアドレス</dt>
     <dd><?= $email ?></dd>
+    <dt>電話番号</dt>
+    <dd><?= $phone ?></dd>
     <dt>お問い合わせ内容</dt>
     <dd><?= $content ?></dd>
   </dl>
   <form action="post.php" method="post">
+    <input type="hidden" name="company" value="<?= $company ?>">
     <input type="hidden" name="name" value="<?= $name ?>">
+    <input type="hidden" name="kana" value="<?= $kana ?>">
     <input type="hidden" name="email" value="<?= $email ?>">
+    <input type="hidden" name="phone" value="<?= $phone ?>">
     <input type="hidden" name="content" value="<?= $content ?>">
     <input type="hidden" name="recaptchaResponse" id="recaptchaResponse">
     <input type="submit" value="送信" class="btn btn-primary btn-block">

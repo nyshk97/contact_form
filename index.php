@@ -24,12 +24,24 @@
   <p>入力したメールアドレスにメールを送信します。</p>
   <form action="confirm.php" method="post">
     <div class="form-group">
+      <label for="company">会社名</label>
+      <input type="text" name="company" id="company" class="form-control" autofocus required>
+    </div>
+    <div class="form-group">
       <label for="name">お名前</label>
-      <input type="text" name="name" id="name" class="form-control" autofocus required>
+      <input type="text" name="name" id="name" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label for="kana">フリガナ</label>
+      <input type="text" name="kana" id="kana" class="form-control" required>
     </div>
     <div class="form-group">
       <label for="email">メールアドレス</label>
       <input type="text" name="email" id="email" class="form-control" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+    </div>
+    <div class="form-group">
+      <label for="phone">電話番号</label>
+      <input type="text" name="phone" id="phone" class="form-control" required pattern="^0\d{9,10}$">
     </div>
     <div class="form-group">
       <label for="content">お問い合わせ内容</label>

@@ -1,14 +1,20 @@
 <?php
 require_once('./settings.php');
 
+$company = $_POST['company'];
 $name = $_POST['name'];
+$kana = $_POST['kana'];
 $email = $_POST['email'];
+$phone = $_POST['phone'];
 $content = $_POST['content'];
 
 $url = DOMAIN. '/contacts';
 $params = [
+  'company' => $company,
   'name' => $name,
+  'kana' => $kana,
   'email' => $email,
+  'phone' => $phone,
   'content' => $content
 ];
 
