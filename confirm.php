@@ -1,3 +1,8 @@
+<?php
+$name = $_POST['name'];
+$email = $_POST['email'];
+$content = $_POST['content'];
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -6,7 +11,7 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <!-- <link rel="stylesheet" href="./css/style.css"> -->
-  <title>サンプルフォーム</title>
+  <title>送信確認</title>
   <!-- reCAPTCHA -->
   <script src="https://www.google.com/recaptcha/api.js?render=6LfIhN4UAAAAAJWVOiRgD1SRSN8TIDEX4dYiHG9T"></script>
   <script>
@@ -20,23 +25,22 @@
   <!--  -->
 </head>
 <body class="container">
-  <h1>サンプルフォーム</h1>
-  <p>入力したメールアドレスにメールを送信します。</p>
-  <form action="confirm.php" method="post">
-    <div class="form-group">
-      <label for="name">お名前</label>
-      <input type="text" name="name" id="name" class="form-control" autofocus required>
-    </div>
-    <div class="form-group">
-      <label for="email">メールアドレス</label>
-      <input type="text" name="email" id="email" class="form-control" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
-    </div>
-    <div class="form-group">
-      <label for="content">お問い合わせ内容</label>
-      <textarea name="content" id="content" class="form-control" required></textarea>
-    </div>
+  <h1>送信確認</h1>
+  <p>ご入力いただいた内容は下記の通りです。<br>お間違いがなければ送信ボタンをクリックしてください。</p>
+  <dl>
+    <dt>お名前</dt>
+    <dd><?= $name ?></dd>
+    <dt>メールアドレス</dt>
+    <dd><?= $email ?></dd>
+    <dt>お問い合わせ内容</dt>
+    <dd><?= $content ?></dd>
+  </dl>
+  <form action="post.php" method="post">
+    <input type="hidden" name="name" value="<?= $name ?>">
+    <input type="hidden" name="email" value="<?= $email ?>">
+    <input type="hidden" name="content" value="<?= $content ?>">
     <input type="hidden" name="recaptchaResponse" id="recaptchaResponse">
-    <input type="submit" value="確認画面へ" class="btn btn-primary btn-block">    
+    <input type="submit" value="送信" class="btn btn-primary btn-block">
   </form>
 </body>
 </html>

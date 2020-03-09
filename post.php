@@ -5,7 +5,7 @@ $name = $_POST['name'];
 $email = $_POST['email'];
 $content = $_POST['content'];
 
-$url = DOMAIN. '/contacts?name='. $name;
+$url = DOMAIN. '/contacts';
 $params = [
   'name' => $name,
   'email' => $email,
