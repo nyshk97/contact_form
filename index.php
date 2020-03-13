@@ -47,8 +47,24 @@
       <label for="content">お問い合わせ内容</label>
       <textarea name="content" id="content" class="form-control" required></textarea>
     </div>
+    <div class="form-group">
+      <p>お問い合わせ種別</p>
+      <label for="graphics">グラフィック制作</label>
+      <input type="radio" name="kind" id="graphics">
+      <label for="web">web制作</label>
+      <input type="radio" name="kind" id="web">
+      <label for="movie">動画制作</label>
+      <input type="radio" name="kind" id="movie">
+      <label for="others">その他</label>
+      <input type="radio" name="kind" id="others">
+    </div>
     <input type="hidden" name="recaptchaResponse" id="recaptchaResponse">
     <input type="submit" value="確認画面へ" class="btn btn-primary btn-block">    
   </form>
 </body>
 </html>
+<style>
+  input[type="radio"] {
+    margin-right: 16px;
+  }
+</style>
